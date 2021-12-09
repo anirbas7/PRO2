@@ -1,30 +1,58 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--http://holdirbootstrap.de/los-gehts/-->
-    <meta name="viewport" content="width=device-width, initial-scale=1"><!--http://holdirbootstrap.de/los-gehts/-->
-    <title>"Yazzi"</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><!--http://holdirbootstrap.de/los-gehts/-->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><!--http://holdirbootstrap.de/los-gehts/-->
+    <link rel="stylesheet" href="{{url_for ('static',filename='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css') }}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><!--http://holdirbootstrap.de/los-gehts/-->
+    <title>Yatzy</title>
 </head>
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><!--http://holdirbootstrap.de/los-gehts/-->
-    <script src="js/bootstrap.min.js"></script> <!--http://holdirbootstrap.de/los-gehts/-->
-    <h1>Seit ihr bereit für ein spanendes Yazzi?</h1>
-    <h2>Tragt eure Vornamen in die Felder ein.</h2>
-        <form method="post">
-            <input type="text" name="vorname" placeholder="Spieler 1">
-            <input type="text" name="vorname" placeholder="Spieler 2">
-            <input type="text" name="vorname" placeholder="Spieler 3">
-            <input type="text" name="vorname" placeholder="Spieler 4">
-            <input type="text" name="vorname" placeholder="Spieler 5">
-            <input type="text" name="vorname" placeholder="Spieler 6">
-            <input type="text" name="vorname" placeholder="Spieler 7">
-            <input type="text" name="vorname" placeholder="Spieler 8">
-         <button type="submit">Spiel starten<a href=" index.html"/></button>
-        </form>
 
+        <div class="container-fluid">
+        <div class="col justfy-content-center">
+            <h1>Seit Ihr bereit für ein spannendes Yatzy?</h1>
+        </div>
+        <div class="col align-self-center">
+            <h2>Tragt eure Vornamen in die Felder ein.</h2>
+        </div>
+    </div>
+
+        <form method="post">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col align-self-center" >
+                        <input type="text" name="vorname" placeholder="Spieler 1">
+                    </div>
+                    <div class="col-3" >
+                        <input type="text" name="vorname" placeholder="Spieler 2">
+                    </div>
+                    <div class="col-3" >
+                        <input type="text" name="vorname" placeholder="Spieler 3">
+                    </div>
+                    <div class="col-3" >
+                        <input type="text" name="vorname" placeholder="Spieler 4">
+                    </div>
+                    <div class="col-3" >
+                        <input type="text" name="vorname" placeholder="Spieler 5">
+                    </div>
+                    <div class="col-3" >
+                        <input type="text" name="vorname" placeholder="Spieler 6">
+                    </div>
+                    <div class="col-3" >
+                        <input type="text" name="vorname" placeholder="Spieler 7">
+                    </div>
+                    <div class="col-3" >
+                        <input type="text" name="vorname" placeholder="Spieler 8">
+                    </div>
+                    <div class="col-3" >
+                        <button type="submit">Spiel starten<a href="{{url_for ('static', filename='index.html')}}"/></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    <script src="{{url_for ('static', filename='https://code.jquery.com/jquery-3.2.1.slim.min.js')}}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> <!--http://holdirbootstrap.de/los-gehts/-->
+    <script src="{{url_for ('static', filename='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')}}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> <!--http://holdirbootstrap.de/los-gehts/-->
+    <script src="{{url_for ('static', filename='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')}}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> <!--http://holdirbootstrap.de/los-gehts/-->
 
 </body>
 </html>
