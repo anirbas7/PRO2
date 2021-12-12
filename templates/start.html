@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><!--http://holdirbootstrap.de/los-gehts/-->
-    <link rel="stylesheet" href="{{url_for ('static',filename='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css') }}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><!--http://holdirbootstrap.de/los-gehts/-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!--http://holdirbootstrap.de/los-gehts/-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><!--http://holdirbootstrap.de/los-gehts/ -->
     <title>Yatzy</title>
 </head>
+
 <body>
+
 
         <div class="container-fluid">
         <div class="col justfy-content-center">
@@ -14,14 +16,14 @@
         </div>
         <div class="col align-self-center">
             <h2>Tragt eure Vornamen in die Felder ein.</h2>
-        </div>
-    </div>
+        </div> </div>
+
 
         <form method="post">
             <div class="container">
                 <div class="row justify-content-md-center">
                     <div class="col align-self-center" >
-                        <input type="text" name="vorname" placeholder="Spieler 1">
+                        <input type="text" name="Spieler1"  placeholder="Spieler 1">
                     </div>
                     <div class="col-3" >
                         <input type="text" name="vorname" placeholder="Spieler 2">
@@ -45,14 +47,10 @@
                         <input type="text" name="vorname" placeholder="Spieler 8">
                     </div>
                     <div class="col-3" >
-                        <button type="submit">Spiel starten<a href="{{url_for ('static', filename='index.html')}}"/></button>
+                        <button type="submit">Spiel starten<a href="#"/> </button>
                     </div>
                 </div>
             </div>
         </form>
-    <script src="{{url_for ('static', filename='https://code.jquery.com/jquery-3.2.1.slim.min.js')}}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> <!--http://holdirbootstrap.de/los-gehts/-->
-    <script src="{{url_for ('static', filename='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')}}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> <!--http://holdirbootstrap.de/los-gehts/-->
-    <script src="{{url_for ('static', filename='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')}}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> <!--http://holdirbootstrap.de/los-gehts/-->
-
 </body>
 </html>
