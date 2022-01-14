@@ -1,19 +1,19 @@
-﻿Spieler Name;Spieler 1;Spieler 2;Spieler 3;Spieler 4;Spieler 5;Spieler 6;Spieler 7;Spieler 8
-1er;0;0;0;0;0;0;0;0
-2er;0;0;0;0;0;0;0;0
-3er;0;0;0;0;0;0;0;0
-4er;0;0;0;0;0;0;0;0
-5er;0;0;0;0;0;0;0;0
-6er;0;0;0;0;0;0;0;0
-Summe (Teil 1);0;0;0;0;0;0;0;0
-Bonus ;0;0;0;0;0;0;0;0
-1 Paar;;;;;;;;
-2 Paar;;;;;;;;
-3 Gleiche;;;;;;;;
-Vier Gleiche;;;;;;;;
-Kl. Strasse (25);;;;;;;;
-Gr. Strasse (30);;;;;;;;
-Full House (25);;;;;;;;
-Chance;;;;;;;;
-Yatzy (50);;;;;;;;
-Summe;0;0;0;0;0;0;0;0
+﻿
+1er;0;1;3
+2er;;;;;;
+3er
+4er
+5er
+6er
+Summe (Teil 1)
+Bonus
+1 Paar
+2 Paar
+3 Gleiche
+Vier Gleiche
+Kl. Strasse (25)
+Gr. Strasse (30)
+Full House (25)
+Chance
+Yatzy (50)
+Summe

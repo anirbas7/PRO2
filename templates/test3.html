@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "header.html" %}
+{% include "navbar.html" %}
+<body>
+<div class="container mt-3">
+    <div class="row">
+
+      <h3>Spielplan</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <div class="col-md-1"><th>Spielername</th></div>
+            <div class="col-md-1"><th>Spieler1</th></div>
+            <div class="col-md-1"><th>Spieler2</th></div>
+            <div class="col-md-1"><th>Spieler3</th></div>
+            <div class="col-md-1"><th>Spieler4</th></div>
+            <div class="col-md-1"><th>Spieler5</th></div>
+            <div class="col-md-1"><th>Spieler6</th></div>
+            <div class="col-md-1"><th>Spieler7</th></div>
+            <div class="col-md-1"><th>Spieler8</th></div>
+          </tr>
+        </thead>
+        <tbody>
+          {%for spalte in ergebnise%}
+          <tr>
+            <div class="col-md-1"><td>{{spalte[0]}}</td></div>
+            <div class="col-md-1"><td>{{spalte[1]}} <form method="post"><input type="text" placeholder=" "> </form></td></div>
+            <div class="col-md-1"><td>{{spalte[2]}} <form method="post"><input type="text" placeholder=" "> </form></td></div>
+            <div class="col-md-1"><td>{{spalte[3]}} <form method="post"><input type="text" placeholder=" "> </form></td></div>
+            <div class="col-md-1"><td>{{spalte[4]}} <form method="post"><input type="text" placeholder=" "> </form></td></div>
+            <div class="col-md-1"><td>{{spalte[5]}} <form method="post"><input type="text" placeholder=" "> </form></td></div>
+            <div class="col-md-1"><td>{{spalte[6]}} <form method="post"><input type="text" placeholder=" "> </form></td></div>
+            <div class="col-md-1"><td>{{spalte[7]}} <form method="post"><input type="text" placeholder=" "> </form></td></div>
+            <div class="col-md-1"><td>{{spalte[8]}} <form method="post"><input type="text" placeholder=" "> </form></td></div>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+    </div>
+</div>
+
+{% include "footer.html" %}
+</body>
+</html>

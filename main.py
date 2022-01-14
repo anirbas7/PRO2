@@ -23,8 +23,11 @@ def start():
         players.append(Spieler7)
         Spieler8 = request.form.get("Spieler8")
         players.append(Spieler8)
-        print(players)
-        return render_template("index.html")
+        with open("Name.csv", "w+") as file:
+            writer = csv.writer(file, delimiter=";")
+            for player in towriter:
+                players.append(player)
+        return render_template("test2.html", spieler=player)
 
     else:
         return render_template("start.html")
@@ -46,12 +49,15 @@ def test():
 def test2():
     rows = []
     with open("8-Spieler.csv") as file:
-        csvreader = csv.reader(file)
+        csvreader = csv.reader(file, delimiter=";")
         header = next(csvreader)
         for row in csvreader:
              rows.append(row)
     return render_template("test2.html", ergebnise=rows, tittel=header)
 
+@app.route('/test3')
+def test3():
+    return render_template("test3.html")
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
