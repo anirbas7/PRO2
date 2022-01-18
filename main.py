@@ -6,7 +6,7 @@ app = Flask("yatzy")\
 @app.route("/", methods=['GET', 'POST'])
 def start():
     if request.method == "POST":
-        players = []
+        players = ["Spielername"]
         spieler1 = request.form.get("Spieler1")
         players.append(spieler1)
         spieler2 = request.form.get("Spieler2")
@@ -25,8 +25,8 @@ def start():
         players.append(spieler8)
         with open("Name.csv", "w", newline="") as file:
             writer = csv.writer(file, delimiter=";")
-            for spieler in players:
-                writer.writerow(spieler)
+            for player in players:
+                writer.writerow(player)
         return render_template("test2.html", spieler=players)
     else:
         return render_template("start.html")
@@ -34,7 +34,18 @@ def start():
 
 @app.route('/yatzy')
 def yatzy():
-    return render_template("index.html")
+    players = []
+    rows = []
+    with open("2-Spieler.csv") as file:
+        csvreader = csv.reader(file, delimiter=";")
+        header = next(csvreader)
+        for row in csvreader:
+             rows.append(row)
+    with open("name2.csv") as file1:
+        csvnamereader = csv.reader(file1, delimiter=";")
+        for player in csvnamereader:
+            players.append(player)
+    return render_template("index.html", ergebnise=rows, tittel=header, spieler=players)
 
 @app.route('/nav')
 def nav():
@@ -42,13 +53,18 @@ def nav():
 
 @app.route('/test')
 def test():
+    players = []
     rows = []
     with open("8-Spieler.csv") as file:
         csvreader = csv.reader(file, delimiter=";")
         header = next(csvreader)
         for row in csvreader:
              rows.append(row)
-    return render_template("test.html", ergebnise=rows, tittel=header)
+    with open("name2.csv") as file1:
+        csvnamereader = csv.reader(file1, delimiter=";")
+        for player in csvnamereader:
+            players.append(player)
+    return render_template("test.html", ergebnise=rows, tittel=header, spieler=players)
 
 @app.route('/test2')
 def test2():
