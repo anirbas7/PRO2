@@ -3,6 +3,45 @@
 {% include "header.html" %}
 {% include "navbar.html" %}
 <body>
+<div class="container mt-3">
+    <div class="row justify-content-between justify-content-center">
+      <div class="col-12">
+      <h3>Spielplan</h3>
+      <table class="table table-bordered">
+        <thead>
+        {%for spalte in spieler%}
+          <tr>
+            <th>{{spalte[0]}}</th>
+            <th>{{spalte[1]}}</th>
+            <th>{{spalte[2]}}</th>
+           <!--<th>Spieler3</th>
+            <th>Spieler4</th>
+            <th>Spieler5</th>
+            <th>Spieler6</th>
+            <th>Spieler7</th>
+            <th>Spieler8</th>-->
+          </tr>
+        {%endfor%}
+        </thead>
+        <tbody>
+          {%for spalte in ergebnise%}
+          <tr>
+            <td>{{spalte[0]}}</td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[1]}}"> </form></td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[2]}}"> </form></td>
+           <!-- <td><form method="post"><input type="text" placeholder=" " value="{{spalte[3]}}"> </form></td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[4]}}"> </form></td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[5]}}"> </form></td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[6]}}"> </form></td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[7]}}"> </form></td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[8]}}"> </form></td> -->
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+    </div>
+</div>
 
 {% include "footer.html" %}
 </body>

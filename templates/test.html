@@ -3,87 +3,46 @@
 {% include "header.html" %}
 {% include "navbar.html" %}
 <body>
-<div class="container-fluid">
-    <div class="row justify-content-md-center align-items-center mt-5">
-        <div class="col-md-4">
-            <form method="post" class="form-signin needs-validation" novalidate>
-            <h1 class="h3 mb-3 fw-normal">Seid ihr bereit für ein Yatzy?</h1>
-            <h2 class="h3 mb-3 fw-normal">Tragt eure Namen ein.</h2>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating mb-2">
-                            <input type="text" class="form-control" required  name="Spieler1" id="Sp1" placeholder="Spieler 1">
-                            <label for="Sp1">Spieler 1</label>
-                            <div class="invalid-feedback">min. 2 Spieler!</div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-floating mb-2">
-                            <input type="text" class="form-control " required name="Spieler2" id="Sp2" placeholder="Spieler 2">
-                            <label for="Sp2">Spieler 2</label>
-                            <div class="invalid-feedback">min. 2 Spieler!</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating mb-2">
-                            <input type="text" class="form-control" name="Spieler3" id="Sp3" placeholder="Spieler 3">
-                            <label for="Sp3">Spieler 3</label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-floating mb-2">
-                            <input type="text" class="form-control" name="Spieler4" id="Sp4" placeholder="Spieler 4">
-                            <label for="Sp4">Spieler 4</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating mb-2">
-                            <input type="text" class="form-control" name="Spieler5" id="Sp5" placeholder="Spieler 5">
-                            <label for="Sp5">Spieler 5</label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-floating mb-2">
-                            <input type="text" class="form-control" name="Spieler6" id="Sp6" placeholder="Spieler 6">
-                            <label for="Sp6">Spieler 6</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating mb-2 mr-2">
-                            <input type="text" class="form-control" name="Spieler7" id="Sp7" placeholder="Spieler 7">
-                            <label for="Sp7">Spieler 7</label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-floating mb-2">
-                            <input type="text" class="form-control" name="Spieler8" id="Sp8" placeholder="Spieler 8">
-                            <label for="Sp8">Spieler 8</label>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn btn-lg btn-success w-100" type="submit">Spiel Starten</button>
-            </form>
-        </div>
+<div class="container mt-3">
+    <div class="row justify-content-between justify-content-center">
+      <div class="col-12">
+      <h3>Spielplan</h3>
+      <table class="table table-bordered">
+        <thead>
+        {%for spalte in spieler%}
+          <tr>
+            <th>Spielername</th>
+            <th>Spieler1</th>
+            <th>Spieler2</th>
+            <th>Spieler3</th>
+            <th>Spieler4</th>
+            <th>Spieler5</th>
+            <th>Spieler6</th>
+            <th>Spieler7</th>
+            <th>Spieler8</th>
+          </tr>
+        {%endfor%}
+        </thead>
+        <tbody>
+          {%for spalte in ergebnise%}
+          <tr>
+            <td>{{spalte[0]}}</td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[1]}}"> </form></td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[2]}}"> </form></td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[3]}}"> </form></td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[4]}}"> </form></td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[5]}}"> </form></td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[6]}}"> </form></td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[7]}}"> </form></td>
+            <td><form method="post"><input type="text" placeholder=" " value="{{spalte[8]}}"> </form></td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
     </div>
 </div>
+
 {% include "footer.html" %}
-<script>
-    var form= document.querySelector('.needs-validation');
-
-    form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-            }
-        form.classList.add('was-validated');
-        })
-</script>
-
 </body>
 </html>
