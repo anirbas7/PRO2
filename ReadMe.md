@@ -15,4 +15,5 @@ Die Daten werden gespeichert und zur Analyse bereitgestllt. Ebenso wird immer ei
 ## Bedienung
 Zur Verwendung der Applikation muss die main.py Datei gestartet werden.
 ## Diagramm
-in progress
+### Neues Spiel
+![](Diagramm.jpg)
