@@ -16,9 +16,7 @@ def get_datadir() -> pathlib.Path:
         return home / ".local/share"
     elif sys.platform == "darwin":
         return home / "Library/Application Support"
-
 my_datadir = get_datadir() / "yatzy"
-
 try:
     my_datadir.mkdir(parents=False)
 except FileExistsError:
@@ -68,13 +66,10 @@ def start():
     else:
         return render_template("start.html")
 
-
 @app.route('/yatzy')
 def yatzy():
     players = []
-    print(my_datadir)
     namecsv = os.path.join(my_datadir, "Name.csv")
-    print(namecsv)
     with open(namecsv, "r") as f:
         reader = csv.reader(f)
         for row in reader:
@@ -86,41 +81,31 @@ def yatzy():
     destinationfile = os.path.join(my_datadir, filename)
     sourcefile = ("templates/spielplan/" + player_count + "-Spieler.csv")
     shutil.copy(namecsv, destinationfile, follow_symlinks=True)
-    with open(destinationfile,"a+") as f:
-        with open(sourcefile,"r") as f1:
-            f.write(f1.read())
     players = []
-    with open(destinationfile) as f:
-        csvnamereader = csv.reader(f, delimiter=";")
-        for player in csvnamereader:
+    rows = []
+    with open(namecsv)as f:
+        csvreader = csv.reader(f, delimiter=";")
+        for player in csvreader:
             players.append(player)
+    with open(destinationfile, "a+", encoding='utf-8-sig') as f:
+        with open(sourcefile,"r", encoding='utf-8-sig') as f1:
+            f.write(f1.read())
+    with open(destinationfile) as f:
+        csvreader = csv.reader(f, delimiter=";")
+        header = next(csvreader)
+        for row in csvreader:
+            rows.append(row)
     return render_template("index.html", ergebnise=rows, tittel=header, spieler=players)
+
 
 @app.route('/nav')
 def nav():
     return render_template("navbar.html")
 
-@app.route('/test')
-def test():
-    players = []
-    rows = []
-    """with open("8-Spieler.csv") as file:
-        csvreader = csv.reader(file, delimiter=";")
-        header = next(csvreader)
-        for row in csvreader:
-             rows.append(row)
-    with open("name2.csv") as file1:
-        csvnamereader = csv.reader(file1, delimiter=";")
-        for player in csvnamereader:
-            players.append(player)
-    return render_template("test.html", ergebnise=rows, tittel=header, spieler=players)"""
-
 @app.route('/test2')
 def test2():
     players = []
-    print(my_datadir)
     namecsv = os.path.join(my_datadir, "Name.csv")
-    print(namecsv)
     with open(namecsv, "r") as f:
         reader = csv.reader(f)
         for row in reader:
@@ -132,22 +117,42 @@ def test2():
     destinationfile = os.path.join(my_datadir, filename)
     sourcefile = ("templates/spielplan/" + player_count + "-Spieler.csv")
     shutil.copy(namecsv, destinationfile, follow_symlinks=True)
-    with open(destinationfile,"a+") as f:
-        with open(sourcefile,"r") as f1:
-            f.write(f1.read())
-
     players = []
     rows = []
-    with open("2-Spieler.csv") as file:
-        csvreader = csv.reader(file, delimiter=";")
+    with open(namecsv)as f:
+        csvreader = csv.reader(f, delimiter=";")
+        for player in csvreader:
+            players.append(player)
+    with open(destinationfile, "a+", encoding='utf-8-sig') as f:
+        with open(sourcefile,"r", encoding='utf-8-sig') as f1:
+            f.write(f1.read())
+    with open(destinationfile) as f:
+        csvreader = csv.reader(f, delimiter=";")
         header = next(csvreader)
         for row in csvreader:
-             rows.append(row)
-    with open("Name.csv") as file1:
-        csvnamereader = csv.reader(file1, delimiter=";")
-        for player in csvnamereader:
-            players.append(player)
-    return render_template("test2.html", ergebnise=rows, tittel=header, spieler=players)
+            rows.append(row)
+    if request.method == "POST":
+        punkte1 = request.get("punkte1")
+        if punkte1 != "":
+            with open(destinationfile, "w",) as f:
+                csvreader = csv.reader(f, delimiter=";")
+                header = next(csvreader)
+                rows = list(csvreader)
+                row = rows[1]
+                row.append(punkte1)
+            print(row)
+        punkte2 = request.get("punkte2")
+        if punkte2 != "":
+            with open(destinationfile, "w", ) as f:
+                csvreader = csv.reader(f, delimiter=";")
+                header = next(csvreader)
+                rows = list(csvreader)
+                row = rows[2]
+                row.append(punkte2)
+        return render_template("test2.html", ergebnise=rows, titel=header, spieler=players)
+    else:
+        return render_template("test2.html", ergebnise=rows, titel=header, spieler=players)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

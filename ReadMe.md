@@ -16,4 +16,4 @@ Die Daten werden gespeichert und zur Analyse bereitgestllt. Ebenso wird immer ei
 Zur Verwendung der Applikation muss die main.py Datei gestartet werden.
 ## Diagramm
 ### Neues Spiel
-![](Diagramm.jpg)
+![](static/Diagramm.jpg)
