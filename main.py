@@ -61,6 +61,7 @@ def start():
         spieler8 = request.form.get("Spieler8")
         if spieler8 != "":
             players.append(spieler8)
+        print(players)
         original_stdout = sys.stdout
         namecsv = os.path.join(my_datadir, "Name.csv")
         with open(namecsv, 'w') as f0:
@@ -103,20 +104,42 @@ def yatzy():
             rows.append(row)
     if request.method == "POST":
         points1 = []
+        points2 = []
+        points3 = []
+        points4 = []
+        points5 = []
+        points6 = []
+        points7 = []
+        points8 = []
         punktesp1 = request.form.get("pSp1[]")
         if punktesp1 != "":
             points1.append(punktesp1)
-            print(points1)
+        punktesp2 = request.form.get("pSp2[]")
+        if punktesp2 != "":
+            points2.append(punktesp2)
+        punktesp3 = request.form.get("pSp3[]")
+        if punktesp3 != "":
+            points3.append(punktesp3)
+        punktesp4 = request.form.get("pSp4[]")
+        if punktesp4 != "":
+            points4.append(punktesp4)
+        punktesp5 = request.form.get("pSp5[]")
+        if punktesp5 != "":
+            points5.append(punktesp5)
+        punktesp6 = request.form.get("pSp6[]")
+        if punktesp6 != "":
+            points6.append(punktesp6)
+        punktesp7 = request.form.get("pSp7[]")
+        if punktesp7 != "":
+            points7.append(punktesp7)
+        punktesp8 = request.form.get("pSp8[]")
+        if punktesp8 != "":
+            points8.append(punktesp8)
         with open(destinationfile, 'r') as f6:
-            points = list(f6)
-            points[1:1].append(points1)
-        print(points)
-        original_stdout = sys.stdout
-        with open(destinationfile, 'w') as f6:
-            sys.stdout = f6
-            print(*points1)
-            sys.stdout = original_stdout
-        return redirect("/yatzy", code=301)
+            d_reader = csv.DictReader(f6, delimiter=";")
+            for line in d_reader:
+                print(line)
+        return render_template("index.html", ergebnise=rows, titel=header, spieler=players)
     else:
         return render_template("index.html", ergebnise=rows, titel=header, spieler=players)
 
@@ -124,6 +147,17 @@ def yatzy():
 @app.route('/nav')
 def nav():
     return render_template("navbar.html")
+
+
+@app.route('/ranking')
+def test2():
+    rows = []
+    with open("templates/spielplan/highscore.csv") as h:
+        csvreader = csv.reader(h, delimiter=";")
+        header = next(csvreader)
+        for row in csvreader:
+            rows.append(row)
+    return render_template("ranking.html", titel=header, tabelle=rows)
 
 
 if __name__ == "__main__":
